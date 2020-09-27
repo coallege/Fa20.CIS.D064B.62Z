@@ -1,0 +1,3 @@
+DDL - definition
+DML - modification
+DQL - query

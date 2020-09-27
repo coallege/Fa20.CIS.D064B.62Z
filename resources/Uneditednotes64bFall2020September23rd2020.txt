@@ -1,0 +1,66 @@
+Agenda
+1. Syllabus
+2. Introduction to databases
+3. Lab 1
+SQL - Structured Query Lang - DB
+Course --> 3 parts
+1. Basics - DB Design - Lab 1, Lab 6
+2. Select - DQL - Data Query Language Lab 2 - 5 (data analyst
+3. DDL - Create, Update (with different db objects)
+	--Oracle internals (inner workings) 7 - 8
+4. db security and utilities
+	import/export
+	copy data between tables
+
+analyst - data analysis
+db architect - db internals - performance - high availability
+
+dba - database admin - 
+oracle' 
+server concepts - https://docs.oracle.com/en/database/oracle/oracle-database/12.2/cncpt/index.html
+sql reference - https://docs.oracle.com/database/121/SQLRF/toc.htm
+
+
+engineering handbook - google doc about a language.
+understand everything - remember nothing - no cheating
+
+accounts - 
+cis lab acct
+
+How to log into server using CIS Acct?
+1. On windows start a comman prompt or mac start a terminal window.
+2. type ssh ss03247@voyager.deanza.edu and hit enter
+3. type your password and you will see server prompt.
+
+office hour 12noon to 150pm (mw)
+
+operations 
+	add, remove, update, retrieve
+	create read update delete
+DML - insert, update, delete
+DQL - select
+DDL - create, alter
+
+referential integrity
+ - system of checks and balances
+
+rdbms theory- rules of normalization (added referential integrity).
+
+primary key - is a column in a db with a unique value for each row. it identifies each row and a unique entity.
+
+a thing with distinct and independent existence.
+
+all columns in the table (entity) are dependent on primary key.
+
+implementation - constraint - limiting factor - rule that ensure every value in that column is  unique.
+
+foreign key - another constraint - that limits changes (updates and deletes)
+	like in customer table
+	customer id 
+	product id
+
+in a db - a rowid is an internal construct to uniquely identify each row in db for system use (whether it has pk or not - does not matter)
+
+
+
+
