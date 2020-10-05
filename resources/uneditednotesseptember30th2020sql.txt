@@ -1,0 +1,158 @@
+Agenda
+Review
+Accessing your DB.
+Working with Select statement
+Assignment 2 details
+
+how to look up db tables
+desc user_tables;
+select * from user_tables;
+
+select  - 4 to 5 weeks.
+dql - data query language'
+select col names
+from table name(s)
+where - restricting rows for output
+group by - statistical function
+having - excluding group data
+order by - sorting data
+
+select * from emp;
+desc emp;
+select empno, ename, sal
+from emp;
+
+
+
+select empno, ename, sal
+from emp
+order by sal;
+
+
+select empno, ename, sal
+from emp
+order by 3 desc;
+
+select empno, ename, sal
+from emp
+order by sal desc, ename desc;
+
+select distinct sal
+from emp order by 1;
+
+set theory - union and intersection
+https://en.wikipedia.org/wiki/Set_theory
+
+select empno, ename, sal
+from emp
+where job='CLERK';
+
+select count(*) 
+from emp;
+select count(*) 
+from dept;
+
+select empno, ename, sal, dname
+from emp, dept;
+cartesian product.
+
+please study  basic concepts and notation on set theory.
+
+writing conditions - 
+	if I get an A in SQL and an F in Java then I am ....
+	and 
+	if I get an A in SQL or an F in Java then I am ....
+	or
+
+3 datatypes - 
+number
+char or varchar2 
+date
+
+char is a fixed length string
+bob_ _ _ _ _ _ _
+varchar2 is variable length string.
+bob
+
+comparing strings in SQL .. trim the strings.
+
+select ename, trim(ename)
+from emp;
+
+
+update emp 
+set sal = 99999
+where ename = 'SCOTT';
+
+
+select ename, sal, comm, sal+comm, sal+1000000
+from emp;
+
+update emp 
+set sal = 99999
+where ename = 'SCOTT';
+
+
+select ename
+from emp
+where sal <> 1250
+order by 1;
+
+select ename, sal, comm
+from emp
+where comm = null;
+
+select ename, sal, comm
+from emp
+where comm is null;
+
+select ename, sal, comm
+from emp
+where comm is not null;
+
+select sal "Salaru"
+from emp;
+
+select ename
+from emp
+where ename like 'J%';
+
+
+select ename
+from emp
+where trim(ename) like '%S';
+
+select ename
+from emp
+where trim(ename) like '%LL%';
+
+Write queries for the following questions.
+
+1a. Write a simple query to display the name, job, hire date and employee number of each employee from the emp table.  
+
+1b. Now, display all employees in the emp table including all columns.  
+
+1c. Now rewrite the query to display names of all employees, making sure that two employees with same name don't appear twice in the result set.
+
+2. Write a query to add a record to the emp table:
+
+EMPNO: 1456  ENAME: John Smith  JOB: Analyst  SAL: 2000  HIREDATE: 1/1/02  COMM:  DEPTNO: 20  MGR: 7566
+
+3. Show how will you modify the above record to reflect SAL = 3000
+
+4a. Write a SQL statement to show the employee number, employee name, hiredate of employees where name has 2 L's. 
+
+4b. Now from the above result set, display the same fields, for employees whose names end with "N". 
+
+5. Display all the fields of dept table, where location is BOSTON. 
+
+6. Display employee number, employee name, department number, job for an employee who is not a manager and is not a clerk in department number 10. 
+
+7. Display all employees whose commission is greater than zero and salary is between 1000 and 3000. 
+
+8a. Write a SQL statement to show employees, who don't have any managers. 
+
+8b. Write a SQL statement to display employee number, employee name, salary, manager for all employees, whose managers have employee numbers 7566, 7788
+
+To submit simply create a text file with SQL statement and sample test run and submit using instructions in the syllabus.
+
