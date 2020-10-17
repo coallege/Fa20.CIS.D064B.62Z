@@ -42,8 +42,7 @@ Employee Number Employee N Hiredate  Mgr Name
            7782 CLARK      09-JUN-81 KING
            7566 JONES      02-APR-81 KING
            7876 ADAMS      12-JAN-83 SCOTT
-*/
-/******************************************************************************/
+*******************************************************************************/
 
 /*
 #2. Create a query that will display the employee name, department number,
@@ -156,8 +155,7 @@ WARD       TURNER     SALES                         30
 WARD       WARD       SALES                         30
 WARD       JAMES      SALES                         30
 WARD       BLAKE      SALES                         30
-*/
-/******************************************************************************/
+*******************************************************************************/
 
 /*
 #3. Write a query to display the department name,
@@ -165,10 +163,102 @@ location of all employees who are clerks.
 */
 
 select
-   d.name
+   d.dname "Department Name",
+   d.loc "Location"
+from emp e
+inner join dept d
+on e.deptno = d.deptno
+where (trim(job) = 'CLERK');
 
 /*
-#4. Insert a new row into the department table: department number = 50, department name = training, location = San Francisco. Now create a query to display all the employees in department number 20 and 50. Columns to be displayed are emp number, emp name, dept name, dept location.
+Department Nam Location
+-------------- -------------
+SALES          CHICAGO
+RESEARCH       DALLAS
+RESEARCH       DALLAS
+ACCOUNTING     NEW YORK
+*******************************************************************************/
 
-#5. Insert a new row into the emp table - you can choose any values for the fields, but department number should be null. Now create a query to display all the employees and all the departments, using joins.
+/*
+#4.
+Insert a new row into the department table:
+department number = 50,
+department name = training,
+location = San Francisco.
+
+Now create a query to display all the employees in department number 20 and 50.
+Columns to be displayed are emp number, emp name, dept name, dept location.
 */
+
+insert into dept (deptno, dname, loc) values
+(50, 'training', 'San Francisco');
+
+select
+   e.empno "Employee Number",
+   e.ename "Name",
+   d.dname  "Department",
+   d.loc   "Location"
+from emp e
+inner join dept d
+on e.deptno = d.deptno
+where e.deptno in (20, 50);
+
+/*
+1 row created.
+
+Employee Number Name       Department     Location
+--------------- ---------- -------------- -------------
+           7566 JONES      RESEARCH       DALLAS
+           7902 FORD       RESEARCH       DALLAS
+           7369 SMITH      RESEARCH       DALLAS
+           7788 SCOTT      RESEARCH       DALLAS
+           7876 ADAMS      RESEARCH       DALLAS
+           1456 John Smith RESEARCH       DALLAS
+*******************************************************************************/
+
+/*
+#5.
+Insert a new row into the emp table - you can choose any values for the fields,
+but department number should be null.
+Now create a query to display all the employees and all the departments,
+using joins.
+*/
+
+insert into emp (empno, ename, job, deptno) values
+(1936, 'JohnMadden', 'Football', null);
+
+/*
+ERROR at line 2:
+ORA-01400: cannot insert NULL into ("SQLUSER25"."EMP"."DEPTNO")
+
+This doesn't work because of the foreign key constraint.
+*/
+
+select
+   emp.ename   "Name",
+   dept.dname "Department"
+from emp
+inner join dept
+on emp.deptno = dept.deptno;
+
+/*
+Name       Department
+---------- --------------
+KING       ACCOUNTING
+CLARK      ACCOUNTING
+MILLER     ACCOUNTING
+John Smith RESEARCH
+JONES      RESEARCH
+SMITH      RESEARCH
+SCOTT      RESEARCH
+ADAMS      RESEARCH
+FORD       RESEARCH
+WARD       SALES
+JAMES      SALES
+TURNER     SALES
+ALLEN      SALES
+MARTIN     SALES
+BLAKE      SALES
+
+15 rows selected.
+*******************************************************************************/
