@@ -6,12 +6,9 @@ minimum salary is less than $1000. Sort the output in descending order of
 salary.
 */
 
-select
-   e.mgr
-from
-   emp m,
-   emp e
-where
+select mgr, min(sal)
+from emp
+where mgr is not null;
 
 /*
 #2. Write a query to display the department name, location name, number of
