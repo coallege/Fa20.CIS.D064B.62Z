@@ -1,0 +1,57 @@
+Lab 3 - extend the date a little so you can learn and apply the concepts.
+Review
+ - set theory
+ - join (inner and outer)
+new 
+ - self-equi join
+ 	- inner, outer
+ - lab 3
+new syntax - outer joins
+view with key preserved tables
+
+SELECT mgr.ename, worker.ename
+FROM emp worker, emp mgr
+WHERE worker.mgr = mgr.empno;
+
+
+SELECT mgr.ename, worker.ename
+FROM emp worker, emp mgr
+WHERE worker.mgr (+) = mgr.empno;
+
+
+SELECT mgr.ename, worker.ename
+FROM emp worker, emp mgr
+WHERE worker.mgr = mgr.empno (+);
+
+1. Write a query to display employee number, employee name, hiredate, manager's name for those employees, whose manager's name starts with K or M or S. Label the columns Employee Number, Employee Name, Hiredate, Mgr Name.
+>>self equi join between emp e, emp d
+take care of join condition
+additional condition to select mgr names that start with K, M or S.
+
+#2. Create a query that will display the employee name, department number, department name and all the employees that work in the same department as a given employee. Give each column an appropriate label.
+
+employees that work in the same department as King (becomes the given employee)
+join between dept and emp
+
+#3. Write a query to display the department name, location of all employees who are clerks.
+
+join between emp and dept  and a condition for clerks.
+
+#4. Insert a new row into the department table: department number = 50, department name = training, location = San Francisco. Now create a query to display all the employees in department number 20 and 50. Columns to be displayed are emp number, emp name, dept name, dept location.
+
+outer join between dept and emp - and show all employees in emp and dept.
+
+#5. Insert a new row into the emp table - you can choose any values for the fields, but department number should be null. Now create a query to display all the employees and all the departments, using joins.
+
+Use the script that creates emp2 - with employees that do not have a department.
+Do a query with full outer join
+
+
+
+
+
+
+
+
+
+

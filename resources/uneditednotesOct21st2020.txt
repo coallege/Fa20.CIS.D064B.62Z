@@ -1,0 +1,38 @@
+Agenda
+Review
+questions on lab 3
+assignment 4 and 5 - functions - single row, multiple row and subqueries
+
+lab 3
+q2
+Create a query that will display the employee name, department number, department name and all the employees that work in the same department as a given employee. Give each column an appropriate label.
+
+ - all people that work in same department as 'King'
+ - join emp (twice) and dept
+
+select ...
+from emp e1, emp e2, dept d1
+where .. two join condition
+	1. between emp and emp (who works in my dept)
+	2. between emp and dept for finding the department.
+	3. another condition that matches MILLER
+
+assignment 4
+#1. Display the manager number and the salary of the lowest paid employee for that manager. Exclude anyone whose manager is not known. Exclude any groups where the minimum salary is less than $1000. Sort the output in descending order of salary.
+min(sal) with group by
+having clause.
+
+#2. Write a query to display the department name, location name, number of employees, and the average salary for all employees in that department. Label the columns dname, loc, Number of People, and Salary, respectively.
+apply count and avg
+
+#3. Write a query to display department names with salary grade, minimum salary and average commission. For departments with null commission, you should display 0. (salgrade table can be used for getting salary grade).
+join between emp and dept
+use nvl
+use min and avg.
+find salgrade based on minsal and avg comm (combined).
+
+#4. What is difference between COUNT(*), COUNT(col_name), COUNT(DISTINCT(col_name)), COUNT(ALL(col_name))? Explain with examples.
+
+
+#5. Display the employee number, name, salary, and salary increase by 15% expressed as a whole number. Label the column New Salary.
+applying single row functions.

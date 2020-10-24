@@ -164,7 +164,7 @@ location of all employees who are clerks.
 
 select
    d.dname "Department Name",
-   d.loc "Location"
+   d.loc   "Location"
 from emp e
 inner join dept d
 on e.deptno = d.deptno
@@ -196,7 +196,7 @@ insert into dept (deptno, dname, loc) values
 select
    e.empno "Employee Number",
    e.ename "Name",
-   d.dname  "Department",
+   d.dname "Department",
    d.loc   "Location"
 from emp e
 inner join dept d
@@ -236,7 +236,7 @@ This doesn't work because of the foreign key constraint.
 
 select
    emp.ename   "Name",
-   dept.dname "Department"
+   dept.dname  "Department"
 from emp
 inner join dept
 on emp.deptno = dept.deptno;
