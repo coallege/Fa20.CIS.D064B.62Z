@@ -264,8 +264,33 @@ select count(col_name) from table_name;
 -- I don't think that there really is one. Even with the all, it still does not
 -- count null values in col_name. They are probably just identical.
 
-
 /*
 #5. Display the employee number, name, salary, and salary increase by 15%
 expressed as a whole number. Label the column New Salary.
 */
+
+select
+   empno as "Employee Number",
+   ename as "Name",
+   sal as "Salary",
+   round(sal * 1.15, 0) as "Salary Increase" -- round(?, 0) because whole number
+from emp;
+
+/*
+Employee Number Name           Salary Salary Increase
+--------------- ---------- ---------- ---------------
+           7839 KING             5000            5750
+           7698 BLAKE            2850            3278
+           7782 CLARK            2450            2818
+           7566 JONES            2975            3421
+           7654 MARTIN           1250            1438
+           7499 ALLEN            1600            1840
+           7844 TURNER           1500            1725
+           7900 JAMES             950            1093
+           7521 WARD             1250            1438
+           7902 FORD             3000            3450
+           7369 SMITH             800             920
+           7788 SCOTT            3000            3450
+           7876 ADAMS            1100            1265
+           7934 MILLER           1300            1495
+*******************************************************************************/
