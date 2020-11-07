@@ -44,7 +44,7 @@ Username is first two letters of the name in the lower case.
 
 select
    ename as "Name",
-   lower(substr(ename, 0, 2)) as "Username",
+   lower(substr(ename, 1, 2)) as "Username",
    to_char(hiredate, 'mm/dd/yy') as "Hire Date",
    to_char(sal, '$99,999.00') as "Salary",
    to_char(next_day(add_months(hiredate, 6), 'mon'), 'mm/dd/yy') as "REVIEW"
