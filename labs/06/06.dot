@@ -1,0 +1,56 @@
+digraph assignment6 {
+   node [
+      fontname="Bitstream Vera Sans"
+      fontsize=8
+      shape=record
+   ]
+
+   edge [
+      dir=both
+      arrowtail=teetee
+      arrowhead=teetee
+   ]
+
+	User [
+		label="{User|*id number(8)\lfirst_name varchar2(32)\llast_name varchar2(32)\laddress varchar2(256)\lemail varchar2(64)\ltel varchar2(32)\l}"
+	]
+
+   Payment [
+      label="{Payment|*id number(3)\ltype varchar2(32)\l}"
+   ]
+
+   Resident [
+      label="{Resident|*#user_id number(8)\lstatus varchar2(12)\l}"
+   ]
+
+   College [
+      label="{College|*id number(3)\lname varchar2(128)\laddress varchar2(256)\ltel varchar2(32)\l}"
+   ]
+
+   Location [
+      label="{Location|*id number(4)\lname varchar2(64)\l#college_id number(3)}"
+   ]
+
+   Department [
+      label="{Department|*id number(2)\lname varchar(64)\l#college_id number(3)\l}"
+   ]
+
+   Course [
+      label="{Course|*id number(5)\lname varchar(64)\l#dept_id number(2)\l}"
+   ]
+
+   Section [
+      label="{Section|*id number(5)\l#course_id number(5)\l#location_id number(4)\l#instructor_id number(8)\lstart_time number(4)\lend_time number(4)\lstart_date date\lend_date date\l}"
+   ]
+
+   User -> Resident [arrowhead=teeodot]
+   College -> Location [arrowhead=crowodot]
+   College -> Department [arrowhead=crowodot]
+   Department -> Course [arrowhead=crowodot]
+   Course -> Section [arrowhead=crowtee]
+   Location -> Section [arrowhead=crowodot]
+   User -> Section [arrowtail=crowtee arrowhead=crowodot]
+
+   // maybe?
+   User -> Payment [arrowtail=crowodot arrowhead=crowodot]
+}

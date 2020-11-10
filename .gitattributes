@@ -1,1 +1,2 @@
 *.sql linguist-language=SQL linguist-detectable -linguist-generated -linguist-vendored
+*.dot linguist-detectable
