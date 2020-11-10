@@ -3,9 +3,6 @@ Dean of Admission at DeAnza College has hired you to do the database design for
 a new registration system. Keeping in the mind the following requirements,
 design a Database Schema.
 */
-5.
-Students register for a section from a catalog (which is composed of
-Departments, Courses, Sections, Location.)
 
 6.
 Students have to pay for the course they take. You may want to think about
@@ -62,7 +59,7 @@ create table location_6 (
 /* 1. College has several departments */
 create table department_6 (
    id number(2) primary key, -- 99 departments
-   name varchar(32) not null,
+   name varchar(64) not null,
    college_id number(3) references college_6(id)
 );
 
@@ -70,9 +67,17 @@ create table course_6 (
    -- like the length of a CRN
    -- this also doubles as the course number
    id number(5) primary key,
-   prereq_id number(5) references course_6(id),
+   name varchar(64) not null,
    -- 2. Departments offer several courses
    dept_id number(2) references department_6(id)
+);
+
+
+create table course_prereq_join_6 (
+   course_id number(5) references course_6(id),
+   prereq_id number(5) references course_6(id),
+   -- enforce the uniqueness
+   constraint primary key course_prereq_join_pk (course_id, prereq_id)
 );
 
 create table section_6 (
@@ -89,11 +94,32 @@ create table section_6 (
    end_date date
 );
 
-insert into
-   user_6
-values (
-   0, 'Cole', 'Gannon', '120 Mozambique Way', '9938@qq.com', '+1404 003 9312'
+-- need a join table for this because course and users is a
+-- many to many relationship; one course can have many users
+-- and one user can be enrolled in many sections
+-- one thing to note is that a user can't be enrolled in two
+-- sections that are part of the same course. My portal
+-- doesn't allow it so I'll try the same thing here
+create table course_user_join_6 (
+   course_id number(5) references course_6(id),
+   user_id number(8) references user_6(id),
+
+   -- this is just to keep track of which sections people are enrolled in
+   section_id number(5) references section_6(id),
+
+   constraint primary key course_user_join_pk (course_id, user_id)
 );
+
+insert into user_6
+select 0, 'Cole', 'Gannon', '120 Mozambique Way', '9938@qq.com', '+1404 003 9312' from dual
+union all select 1, 'William', 'Windows', null, null, null from dual
+union all select 2, 'Scala', 'Johansson', null, null, null from dual
+union all select 3, 'Eddie', 'Larrison', null, null, null from dual
+union all select 4, 'Cafra', 'Satz', null, null, null from dual
+union all select 5, 'Mr. Sun', 'Microsystems', null, null, null from dual
+union all select 6, 'BEN', 'STEED', null, null, null from dual
+union all select 7, 'Linux', 'Sebastian', null, null, null from dual
+union all select 8, 'Cassandra', 'Deebee', null, null, null from dual;
 
 insert into payment_type_6 (id, type)
 select 0, 'cash' from dual
@@ -151,7 +177,6 @@ union all select 5, 31, '"Foot Mountain" Room L' from dual
 union all select 6, 32, 'Conspiracy Theory Club Room' from dual
 union all select 6, 33, '"Rampant Capitalism" Lecture Hall' from dual
 union all select 6, 34, 'Consumerism Brainwashing Arena 02' from dual
-union all select 6, 35, 'Excessive Gun Hoarding Area' from dual
 union all select 7, 36, 'ben steed worship site' from dual
 union all select 7, 37, 'Big Pharmacy Chapel' from dual
 union all select 7, 38, 'Mandatory Outreach Offices' from dual
@@ -160,4 +185,35 @@ union all select 9, 40, 'Negative Hanguar' from dual
 union all select 9, 41, 'Atrium' from dual
 union all select 9, 42, 'Breakout in Hives Room' from dual
 union all select 9, 43, 'Fennel Containment Room (Chemestry)' from dual;
+
+insert into department_6 (college_id, id, name)
+select 0, 0, 'CIS Department' from dual
+union all select 0, 1, 'Ultimate Anthropology Department' from dual
+union all select 1, 2, 'East West Studies' from dual
+union all select 3, 2, 'Department of Human Suffering and Labor' from dual;
+
+insert into course_6 (dept_id, id, name)
+select 0, 0, 'Visual Basic .NET Programming I' from dual
+union all select 0, 1, 'Beginning Programming Methodologies in C++' from dual
+union all select 0, 2, 'Java Programming' from dual
+union all select 0, 3, 'Intro To SQL' from dual
+union all select 3, 4, 'Flensing for fun and profit!' from dual;
+
+insert into section_6 (id, course_id, location_id, instructor_id)
+select 25934, 3, 2, 7 from dual
+union all select 23382, 2, 1, 5 from dual
+union all select 21718, 1, 0, 6 from dual;
+
+-- let's enroll me into some of my courses
+
+insert into course_user_join_6 (user_id, course_id, section_id)
+select 0, 1, 21718 from dual
+union all select 0, 2, 23382 from dual
+union all select 0, 3, 25934 from dual;
+
+/*
+5.
+Students register for a section from a catalog (which is composed of
+Departments, Courses, Sections, Location.)
+*/
 
