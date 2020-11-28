@@ -1,6 +1,6 @@
 # Fa20.CIS.D064B.62Z
 
-![](resources/rave_cat.gif)
+![](misc/rave_cat.gif)
 
 This is shaping up to be one of the best classes I've taken so far.
 
@@ -16,3 +16,5 @@ Sec|Start|End|Title
 [sec5m](sec5m)|`11/04`|`11/06`|Midterm
 [sec6](sec6)|`11/07`|`11/10`|Database Design
 [sec7](sec7)|`11/11`|`11/29`|Database Objects
+[sec8](sec8)|`11/30`|`12/06`|DML Statements
+[sec8f](sec8f)|`12/07`|`12/09`|Final

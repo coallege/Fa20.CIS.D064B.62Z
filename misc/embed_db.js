@@ -20,7 +20,7 @@ db.exec(/* sql */ `
    create table files(
       text filename primary key,
       blob filedata not null
-   );
+   ) without rowid;
 `);
 
 const insert = db.prepare(/* sql */ `insert into files values (?, ?)`);
