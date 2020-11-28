@@ -4,6 +4,23 @@
 
 This is shaping up to be one of the best classes I've taken so far.
 
+## Rant on 2020.11.28
+
+Honestly, this class really put me in my place.
+I really struggled with the concepts and it felt like it took me longer to learn
+this material than any other programming related thing in a while.
+It could be that I just learn at a slower pace than others.
+What I think is more likely is that I'm trying to autopilot this class and lean
+against a non-existant pillar of knowledge that I've built up about the subject.
+As humbling as it may be, going into this class, I knew basically nothing about
+databases and SQL, for that matter.
+Either way, it's about time for me to start putting in real effort into learning
+something, even if it's outside of my comfort zone, and this SQL stuff sure is.
+
+<sub>I'm still worried that I'm not gonna get an A though...</sub>
+
+<sup>please let the class end im sorry ill never take another db class again</sup>
+
 ## Sections
 
 Sec|Start|End|Title
