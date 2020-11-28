@@ -1,3 +1,3 @@
-# Section 1: 2020.09.23 - 2020.09.27<br>Basic features of databases
+# Section 1: 09/23 - 09/27<br>Basic features of databases
 
 ![](sec.png)

@@ -1,0 +1,6 @@
+{
+   "devDependencies": {
+      "@types/node": "^14.14.10",
+      "better-sqlite3": "7.*"
+   }
+}
