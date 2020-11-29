@@ -2,7 +2,10 @@
 
 ![](sec.png)
 
-## Response: 8/10
+## Response
+
+- Date: 11/15
+- Score: 8/10
 
 Missing table for student registration.
 That table should be joined to user, section and payment with FK's pointing to
