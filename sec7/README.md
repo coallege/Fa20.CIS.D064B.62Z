@@ -126,3 +126,68 @@ create table baz(
    constraint baz_pk primary key(qux)
 );
 ```
+
+Alright you can add and drop constraints.
+It's just the out of line way.
+
+## user_constraints
+
+Oh look at that. In the Data Dictionary thingy, there's a `user_constraints`.
+
+```sql
+column table_name format A10;
+
+select
+   table_name,
+   decode(constraint_type,
+      'C', 'check',
+      'P', 'primary key',
+      'U', 'unique',
+      'R', 'foreign key',
+      'V', 'check',
+      'O', 'read only'
+   ) "type",
+   constraint_name "name"
+from
+   user_constraints
+join
+   user_tables
+using (table_name);
+
+/*
+TABLE_NAME type        name
+---------- ----------- ------------------------------
+DEPT       check       SYS_C00340430
+DEPT       primary key DEPT_PRIMARY_KEY
+EMP        check       SYS_C00340432
+EMP        check       SYS_C00340433
+EMP        primary key EMP_PRIM_KEY
+EMP        foreign key EMP_SELF_KEY
+EMP        foreign key EMP_FOREIGN_KEY
+PROD       check       SYS_C00340437
+PROD       primary key SYS_C00340438
+VEND       check       SYS_C00340439
+VEND       primary key SYS_C00340440
+*/
+```
+
+Interestingly, we can see that there's a `check` constraint on `dept`.
+
+```sql
+create table dept(
+   deptno number(2) not null,
+   dname char(14),
+   loc char(13),
+   constraint dept_primary_key primary key (deptno)
+);
+```
+
+Where's the `check`? Well, my best guess is that internally, `not null` is
+actually stored as a `check`.
+
+## aaaaa
+
+The difficulty that I'm having understanding what to do for this assignment is
+getting to me.
+I'm nearly at "go back to sleep" levels of frustration / mild anxiety.
+I'll give it another shot for like a few more hours.
