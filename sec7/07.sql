@@ -14,7 +14,9 @@ create tablespace da_reg datafile 'da_reg.f' size 1M autoextend on next 1M;
 -- As expected and said in the lecture
 -- Ideally, you'd also use a create schema da_reg but we can't do that either.
 
-drop table da_user cascade constraints purge; -- purge partitions
+select * from dual;
+drop table da_user cascade constraints purge;
+-- purge partitions
 -- see one time I forgot to purge and the partition was still there
 -- if that happens, I have to run purge recyclebin;
 drop table da_location cascade constraints;
@@ -24,7 +26,6 @@ drop table da_college cascade constraints;
 drop table da_department cascade constraints;
 drop table da_course cascade constraints;
 drop table da_section cascade constraints;
-drop table da_course_user_join cascade constraints;
 drop table da_student_registration cascade constraints purge;
 drop view da_catalogue cascade constraints;
 
