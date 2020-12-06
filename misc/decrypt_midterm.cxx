@@ -35,6 +35,8 @@ int main() {
       }
    }
 
+   // you fool. you absolute buffoon.
+   // you think I would actually include my midterm in a *public* repository?
    puts("Critical error, try again.");
    system("pause");
 }

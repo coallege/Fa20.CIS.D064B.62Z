@@ -46,7 +46,7 @@ create table da_payment (
 );
 
 create table da_resident (
-   user_id number(8) references da_user(id),
+   user_id number(8) not null references da_user(id),
    status varchar2(12) not null -- either resident or non-resident
 );
 
@@ -105,7 +105,7 @@ create table da_student_registration (
    id number(16) primary key,
    reg_date date not null,
    student_id number(8) references da_user(id),
-   section_crn number(5) references da_section(id),
+   section_id number(5) references da_section(id),
    payment_id number(1) references da_payment(id)
    -- fee status???
 ) partition by range (reg_date)
