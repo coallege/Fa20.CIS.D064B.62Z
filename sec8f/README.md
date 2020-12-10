@@ -11,6 +11,9 @@ It was at 6:31pm that I decided to check the announcements.
 Did you figure out that `decrypt_midterm.exe` was only there to waste your time?
 Here's all the info I can give you about the final:
 
-![](final.png)
+![](scunge.png)
 
-Don't cheat. Better luck next time.
+Don't cheat, just study the material and you should be fine.
+The prof grades strict but fair.
+If you put in good effort, I think everyone should at least get a B.
+Anyways, I hope I get a good grade.
