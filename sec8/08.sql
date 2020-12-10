@@ -84,6 +84,9 @@ values (30996, 0, 0, 3, null, null, date'2020-01-06', date'2020-03-27');
 /*
 Produce a report showing the department, its course and sections
 (with complete section information).
+
+Forgot section information
+-1 point
 */
 
 -- this works best if it's run as a script file

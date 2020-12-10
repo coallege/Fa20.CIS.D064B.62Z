@@ -29,3 +29,5 @@ for (const arg of args.slice(1)) {
    const data = fs.readFileSync(arg);
    insert.run(arg, data);
 }
+
+db.close;
